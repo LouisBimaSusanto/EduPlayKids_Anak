@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-baloo), ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #FFB800; /* Cheerful Yellow */
+  --color-secondary: #00D1FF; /* Sky Blue */
+  --color-accent: #00E59B; /* Mint Green */
+  --color-background: #F9F9FB;
+  --color-foreground: #333333;
+  --color-error: #FF5A5F;
+  --color-success: #00E59B;
+
+  --animate-bounce-click: bounce-click 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Keyframes and Utilities */
+@keyframes bounce-click {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px 10px rgba(245, 166, 35, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 50px 20px rgba(245, 166, 35, 0.6), inset 0 0 25px rgba(255, 255, 255, 0.6); }
+}
+
+@keyframes track-flow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+@keyframes meteor {
+  0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-1000px); opacity: 0; }
+}
+
+.meteor-tail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+}
+
+.animate-track-flow {
+  animation: track-flow 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #FFF5E0 0%, #FFFFFF 50%, #FFF5E0 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+:root {
+  --background: #F9F9FB;
+  --foreground: #333333;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  user-select: none; /* Prevent text selection for a more app-like feel */
+  -webkit-user-select: none;
+}

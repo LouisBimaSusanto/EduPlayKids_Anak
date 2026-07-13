@@ -1,0 +1,22 @@
+{
+  "name": "Eduplay Kids Nusantara",
+  "short_name": "Eduplay Kids",
+  "description": "Aplikasi game petualangan belajar membaca yang magis untuk anak-anak Nusantara.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B0F40",
+  "theme_color": "#1B0F40",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
