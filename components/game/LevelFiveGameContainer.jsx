@@ -14,18 +14,18 @@ const LevelCompleteModal = ({ onCompleteLevel }) => {
   
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      <span className="text-[12rem] animate-[bounce_1s_infinite] mb-8 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">🎇</span>
+      <span className="text-[12rem] animate-bounce mb-8 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">🎇</span>
       <h1 className="text-6xl font-black text-white drop-shadow-[0_0_30px_rgba(217,70,239,0.8)] mb-12 text-center">FESTIVAL SELESAI!</h1>
       <button 
         onClick={onCompleteLevel} 
         className="
-          bg-gradient-to-tr from-fuchsia-600 to-purple-500 
+          bg-linear-to-tr from-fuchsia-600 to-purple-500 
           text-white font-black text-4xl 
           py-6 px-16 rounded-full 
           border-[6px] border-[#FFF]
-          border-b-[16px] border-b-purple-900 
-          active:border-b-[6px] active:translate-y-[10px] 
-          shadow-[0_20px_50px_rgba(192,132,252,0.8),_inset_0_5px_15px_rgba(255,255,255,0.6)]
+          border-b-16 border-b-purple-900 
+          active:border-b-[6px] active:translate-y-2.5 
+          shadow-[0_20px_50px_rgba(192,132,252,0.8),inset_0_5px_15px_rgba(255,255,255,0.6)]
           transition-all duration-100 ease-out
         "
       >
@@ -73,11 +73,11 @@ export function LevelFiveGameContainer({ initialStep = 0, onClose, onCompleteLev
   };
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden bg-gradient-to-b from-slate-900 via-indigo-900 to-fuchsia-900">
+    <div className="fixed inset-0 z-200 overflow-hidden bg-linear-to-b from-slate-900 via-indigo-900 to-fuchsia-900">
       
       {/* Night Sky Background Elements */}
       <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(15,23,42,0.8)_100%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,rgba(15,23,42,0.8)_100%)] pointer-events-none" />
 
       {/* Floating Stars */}
       {[...Array(20)].map((_, i) => (

@@ -64,7 +64,7 @@ export function GameKatakLompat({ onComplete }) {
     <div className="w-full h-full flex flex-col items-center justify-between p-8 relative overflow-hidden">
       {/* Background River Element */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none mix-blend-overlay" />
-      <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-cyan-900/80 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-cyan-900/80 to-transparent pointer-events-none" />
 
       {/* Progress Info */}
       <div className="absolute top-8 left-8 z-30 bg-purple-900/50 backdrop-blur-md px-6 py-2 rounded-full border-2 border-fuchsia-400/50">
@@ -95,8 +95,8 @@ export function GameKatakLompat({ onComplete }) {
                 className={`
                   relative flex flex-col items-center justify-center
                   w-32 h-32 md:w-48 md:h-48 rounded-full
-                  bg-gradient-to-br from-emerald-400 to-green-600
-                  border-b-[12px] border-b-green-800 border-[4px] border-emerald-200
+                  bg-linear-to-br from-emerald-400 to-green-600
+                  border-b-12 border-b-green-800 border-4 border-emerald-200
                   shadow-[0_20px_30px_rgba(0,0,0,0.5)]
                   ${isWrong ? 'animate-[shake_0.5s_ease-in-out] opacity-50 grayscale' : 'hover:-translate-y-2'}
                   ${isCorrect ? 'shadow-[0_0_50px_#4ade80] border-white' : ''}
@@ -123,7 +123,7 @@ export function GameKatakLompat({ onComplete }) {
           className="relative flex flex-col items-center"
         >
           <span className="text-[8rem] md:text-[12rem] drop-shadow-[0_20px_20px_rgba(0,0,0,0.6)] z-30">🐸</span>
-          <div className="w-48 h-16 md:w-64 md:h-24 bg-gradient-to-br from-emerald-500 to-green-700 rounded-[100%] border-b-[8px] border-b-green-900 border-[2px] border-emerald-300 absolute -bottom-4 -z-10 shadow-[0_30px_30px_rgba(0,0,0,0.6)]" />
+          <div className="w-48 h-16 md:w-64 md:h-24 bg-linear-to-br from-emerald-500 to-green-700 rounded-[100%] border-b-8 border-b-green-900 border-2 border-emerald-300 absolute -bottom-4 -z-10 shadow-[0_30px_30px_rgba(0,0,0,0.6)]" />
         </motion.div>
       </div>
 

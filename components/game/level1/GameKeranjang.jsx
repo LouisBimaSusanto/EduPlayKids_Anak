@@ -138,7 +138,7 @@ export function GameKeranjang({ onComplete }) {
                initial={{ opacity: 0, scale: 0 }}
                animate={{ opacity: [0, 1, 0], scale: [0.5, 3, 5] }}
                transition={{ duration: 1.5, ease: "easeOut" }}
-               className={`absolute z-40 bg-[radial-gradient(circle,_rgba(255,215,0,1)_0%,_transparent_60%)] mix-blend-screen pointer-events-none w-64 h-64 ${roundData.correctOffset < 0 ? '-translate-x-full' : 'translate-x-full'}`}
+               className={`absolute z-40 bg-[radial-gradient(circle,rgba(255,215,0,1)_0%,transparent_60%)] mix-blend-screen pointer-events-none w-64 h-64 ${roundData.correctOffset < 0 ? '-translate-x-full' : 'translate-x-full'}`}
              />
           )}
 

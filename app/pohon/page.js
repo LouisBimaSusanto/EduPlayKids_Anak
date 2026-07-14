@@ -93,8 +93,8 @@ export default function PohonKehidupanPage() {
   };
 
   return (
-    <main className={`min-h-screen pb-32 overflow-hidden flex flex-col items-center relative transition-colors duration-1000 bg-gradient-to-b ${activeModule.bgColor}`}>
-      
+    <main className={`min-h-screen pb-32 overflow-hidden flex flex-col items-center relative transition-colors duration-1000 bg-linear-to-b ${activeModule.bgColor}`}>
+
       {/* Background Magical Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -110,20 +110,20 @@ export default function PohonKehidupanPage() {
           />
         ))}
         {/* Volumetric Light */}
-        <div className="absolute top-0 inset-x-0 h-[60vh] bg-gradient-to-b from-white/10 to-transparent mix-blend-overlay" />
+        <div className="absolute top-0 inset-x-0 h-[60vh] bg-linear-to-b from-white/10 to-transparent mix-blend-overlay" />
       </div>
 
       <header className="w-full max-w-md mx-auto pt-12 px-6 relative z-10 text-center flex items-center justify-between">
         <button onClick={handlePrev} className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full text-white text-2xl flex items-center justify-center active:scale-95 transition-transform border-2 border-white/30">
           ◀
         </button>
-        <motion.div 
+        <motion.div
           key={activeIndex}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="flex-1"
         >
-          <h1 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-green-100 drop-shadow-lg leading-tight">
+          <h1 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-b from-white to-green-100 drop-shadow-lg leading-tight">
             Taman Botani
           </h1>
           <p className="text-white/80 font-bold mt-1 text-sm bg-black/30 rounded-full inline-block px-4 py-1">
@@ -152,20 +152,20 @@ export default function PohonKehidupanPage() {
               // LOCKED MYSTERY SEED DOME
               <div className="relative flex items-end justify-center w-48 h-56 mt-12">
                 {/* The Glass Dome */}
-                <div className="absolute inset-0 w-full h-full rounded-t-[100px] border-4 border-white/30 bg-gradient-to-b from-white/20 to-transparent backdrop-blur-[2px] shadow-[inset_0_20px_40px_rgba(255,255,255,0.3)] z-20 pointer-events-none">
+                <div className="absolute inset-0 w-full h-full rounded-t-[100px] border-4 border-white/30 bg-linear-to-b from-white/20 to-transparent backdrop-blur-[2px] shadow-[inset_0_20px_40px_rgba(255,255,255,0.3)] z-20 pointer-events-none">
                   {/* Lock Icon */}
                   <div className="w-full text-center mt-6">
                     <span className="text-4xl opacity-50 drop-shadow-md">🔒</span>
                   </div>
                 </div>
-                
+
                 {/* The Mystery Seed */}
                 <span className="text-6xl drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] z-10 grayscale brightness-50 opacity-80 animate-pulse mb-6">
                   🌱
                 </span>
 
                 {/* Dirt Base */}
-                <div className="w-44 h-12 bg-gradient-to-b from-[#2A1506] to-black rounded-[100%] absolute -bottom-4 z-0 shadow-[0_20px_20px_rgba(0,0,0,0.9)]" />
+                <div className="w-44 h-12 bg-linear-to-b from-[#2A1506] to-black rounded-[100%] absolute -bottom-4 z-0 shadow-[0_20px_20px_rgba(0,0,0,0.9)]" />
               </div>
             ) : (
               // ACTIVE TREE (Module 1)
@@ -174,16 +174,16 @@ export default function PohonKehidupanPage() {
                 {currentStageIndex >= 3 && (
                   <div className="absolute inset-0 bg-yellow-400 rounded-full blur-[50px] opacity-30 animate-[pulse_3s_ease-in-out_infinite] transform-gpu" />
                 )}
-                
+
                 {/* The Main Emoji/Tree */}
-                <span 
+                <span
                   className={`text-[8rem] md:text-[10rem] drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] z-10 mt-12 ${currentStageIndex >= 4 ? 'animate-[float_3s_ease-in-out_infinite]' : ''}`}
                 >
                   {currentStage.emoji}
                 </span>
 
                 {/* Dirt Base */}
-                <div className="w-32 h-8 bg-gradient-to-b from-[#4A2511] to-[#2A1506] rounded-[50%] absolute bottom-4 -z-10 shadow-[0_10px_20px_rgba(0,0,0,0.8)]" />
+                <div className="w-32 h-8 bg-linear-to-b from-[#4A2511] to-[#2A1506] rounded-[50%] absolute bottom-4 -z-10 shadow-[0_10px_20px_rgba(0,0,0,0.8)]" />
               </>
             )}
           </motion.div>
@@ -191,19 +191,19 @@ export default function PohonKehidupanPage() {
       </div>
 
       {/* Status Panel */}
-      <motion.div 
+      <motion.div
         key={`panel-${activeIndex}`}
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
         className="w-full max-w-md mx-auto px-6 relative z-20"
       >
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2rem] p-6 shadow-2xl text-center relative overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-4xl p-6 shadow-2xl text-center relative overflow-hidden">
           {activeModule.isLocked ? (
             <>
               <h2 className="text-2xl font-bold text-white/50 drop-shadow-md mb-2">Bibit Misterius</h2>
               <p className="text-white/40 text-sm mb-4">Selesaikan Modul {activeModule.id - 1} untuk membuka kubah kaca ini dan menumbuhkan pohon baru!</p>
-              
+
               <div className="w-full bg-black/60 rounded-full h-6 border-2 border-white/10 relative overflow-hidden flex items-center justify-center">
                 <span className="text-white/40 text-[10px] font-black tracking-widest">TERKUNCI</span>
               </div>
@@ -212,16 +212,16 @@ export default function PohonKehidupanPage() {
             <>
               <h2 className="text-3xl font-bold text-white drop-shadow-md mb-2">{currentStage.name}</h2>
               <p className="text-white/90 text-sm mb-6">{currentStage.desc}</p>
-              
+
               {/* Progress Bar */}
               <div className="w-full bg-black/40 rounded-full h-6 border-2 border-white/20 relative overflow-hidden">
-                <motion.div 
+                <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${progressPercent}%` }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-emerald-400 to-green-300 relative"
+                  className="h-full bg-linear-to-r from-emerald-400 to-green-300 relative"
                 >
-                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.3)_50%,transparent_75%)] bg-[length:20px_20px] animate-[shimmer_1s_linear_infinite]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.3)_50%,transparent_75%)] bg-size-[20px_20px] animate-[shimmer_1s_linear_infinite]" />
                 </motion.div>
               </div>
               <div className="mt-2 text-white/80 text-xs font-bold uppercase tracking-wider">

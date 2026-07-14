@@ -14,18 +14,18 @@ const LevelCompleteModal = ({ onCompleteLevel }) => {
   
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      <span className="text-[12rem] animate-[bounce_1s_infinite] mb-8 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">🏭</span>
+      <span className="text-[12rem] animate-bounce mb-8 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">🏭</span>
       <h1 className="text-6xl font-black text-white drop-shadow-[0_0_20px_rgba(251,146,60,0.8)] mb-12 text-center">Pabrik Selesai!</h1>
       <button 
         onClick={onCompleteLevel} 
         className="
-          bg-gradient-to-tr from-yellow-500 to-orange-400 
+          bg-linear-to-tr from-yellow-500 to-orange-400 
           text-white font-black text-4xl 
-          py-6 px-16 rounded-[2rem] 
+          py-6 px-16 rounded-4xl 
           border-[6px] border-[#FFF]
-          border-b-[16px] border-b-orange-900 
-          active:border-b-[6px] active:translate-y-[10px] 
-          shadow-[0_20px_40px_rgba(234,179,8,0.6),_inset_0_5px_15px_rgba(255,255,255,0.6)]
+          border-b-16 border-b-orange-900 
+          active:border-b-[6px] active:translate-y-2.5 
+          shadow-[0_20px_40px_rgba(234,179,8,0.6),inset_0_5px_15px_rgba(255,255,255,0.6)]
           transition-all duration-100 ease-out
         "
       >
@@ -73,11 +73,11 @@ export function LevelFourGameContainer({ initialStep = 0, onClose, onCompleteLev
   };
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden bg-gradient-to-b from-red-900 via-orange-600 to-yellow-400">
+    <div className="fixed inset-0 z-200 overflow-hidden bg-linear-to-b from-red-900 via-orange-600 to-yellow-400">
       
       {/* Machinery Background Elements */}
       <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom,_rgba(251,146,60,0.5)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom,rgba(251,146,60,0.5)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Sparks/Embers flying up */}
       {[...Array(20)].map((_, i) => (
@@ -97,8 +97,8 @@ export function LevelFourGameContainer({ initialStep = 0, onClose, onCompleteLev
       ))}
 
       {/* Huge Gears in background */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 border-[40px] border-dashed border-red-950/20 rounded-full animate-[spin_20s_linear_infinite] pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-[30rem] h-[30rem] border-[60px] border-dashed border-orange-900/20 rounded-full animate-[spin_30s_linear_infinite_reverse] pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-96 h-96 border-40 border-dashed border-red-950/20 rounded-full animate-[spin_20s_linear_infinite] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-120 h-120 border-60 border-dashed border-orange-900/20 rounded-full animate-[spin_30s_linear_infinite_reverse] pointer-events-none" />
 
       {/* Close/Back Button */}
       <button 

@@ -35,7 +35,7 @@ export function LevelIntroModal({ isOpen, onClose, onCancel, character = "Ara", 
         <BouncyButton 
           variant="primary" 
           size="lg" 
-          className="w-full text-2xl md:text-3xl md:py-8 md:rounded-[2rem]" 
+          className="w-full text-2xl md:text-3xl md:py-8 md:rounded-4xl" 
           onClick={onClose}
           sound="success"
         >

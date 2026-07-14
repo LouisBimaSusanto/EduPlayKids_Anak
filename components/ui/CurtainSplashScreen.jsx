@@ -31,20 +31,20 @@ export function CurtainSplashScreen() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed inset-0 z-[100] flex pointer-events-none overflow-hidden">
+        <div className="fixed inset-0 z-100 flex pointer-events-none overflow-hidden">
           {/* Left Velvet Curtain */}
           <motion.div
             initial={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }} 
-            className="w-1/2 h-full border-r-[24px] border-[#FFD700] shadow-[30px_0_60px_rgba(0,0,0,0.8)] flex items-center justify-end overflow-hidden relative z-10"
+            className="w-1/2 h-full border-r-24 border-[#FFD700] shadow-[30px_0_60px_rgba(0,0,0,0.8)] flex items-center justify-end overflow-hidden relative z-10"
             style={{ 
               backgroundImage: `linear-gradient(90deg, #4A0000 0%, #A50000 20%, #300000 50%, #A50000 80%, #4A0000 100%)`,
               backgroundSize: '150px 100%' 
             }}
           >
              {/* Left inner glow / highlight on the golden edge */}
-             <div className="absolute right-0 inset-y-0 w-[40px] bg-gradient-to-l from-[#FFF5E0] to-transparent opacity-40 mix-blend-overlay"></div>
+             <div className="absolute right-0 inset-y-0 w-10 bg-linear-to-l from-[#FFF5E0] to-transparent opacity-40 mix-blend-overlay"></div>
              {/* Velvet fabric texture */}
              <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
              <span className="text-8xl md:text-[10rem] mb-32 -mr-20 drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-[pulse_3s_infinite]">✨</span>
@@ -55,14 +55,14 @@ export function CurtainSplashScreen() {
             initial={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-            className="w-1/2 h-full border-l-[24px] border-[#FFD700] shadow-[-30px_0_60px_rgba(0,0,0,0.8)] flex items-center justify-start overflow-hidden relative z-10"
+            className="w-1/2 h-full border-l-24 border-[#FFD700] shadow-[-30px_0_60px_rgba(0,0,0,0.8)] flex items-center justify-start overflow-hidden relative z-10"
             style={{ 
               backgroundImage: `linear-gradient(90deg, #4A0000 0%, #A50000 20%, #300000 50%, #A50000 80%, #4A0000 100%)`,
               backgroundSize: '150px 100%' 
             }}
           >
              {/* Right inner glow / highlight on the golden edge */}
-             <div className="absolute left-0 inset-y-0 w-[40px] bg-gradient-to-r from-[#FFF5E0] to-transparent opacity-40 mix-blend-overlay"></div>
+             <div className="absolute left-0 inset-y-0 w-10 bg-linear-to-r from-[#FFF5E0] to-transparent opacity-40 mix-blend-overlay"></div>
              {/* Velvet fabric texture */}
              <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
              <span className="text-8xl md:text-[10rem] mt-32 -ml-20 drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-[pulse_3s_infinite_reverse]">✨</span>
@@ -76,9 +76,9 @@ export function CurtainSplashScreen() {
           >
             
             {/* Massive Volumetric Spotlights hitting the plaque */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,215,0,0.4)_0%,_transparent_60%)] mix-blend-screen opacity-80 animate-[pulse_4s_infinite]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,215,0,0.4)_0%,transparent_60%)] mix-blend-screen opacity-80 animate-[pulse_4s_infinite]" />
 
-            <div className="relative bg-[#3D1F0A] px-12 py-10 md:px-20 md:py-16 rounded-[4rem] border-[16px] border-[#FFD700] border-b-[24px] border-b-[#B8860B] shadow-[0_40px_80px_rgba(0,0,0,1),_inset_0_5px_30px_rgba(0,0,0,0.8)] flex flex-col items-center animate-[float_4s_infinite]">
+            <div className="relative bg-[#3D1F0A] px-12 py-10 md:px-20 md:py-16 rounded-[4rem] border-16 border-[#FFD700] border-b-24 border-b-[#B8860B] shadow-[0_40px_80px_rgba(0,0,0,1),inset_0_5px_30px_rgba(0,0,0,0.8)] flex flex-col items-center animate-[float_4s_infinite]">
                
                {/* Plaque Corner Ornaments */}
                <div className="absolute -top-6 -left-6 w-12 h-12 bg-[#FFD700] rounded-full shadow-lg border-4 border-[#B8860B]" />
@@ -88,7 +88,7 @@ export function CurtainSplashScreen() {
 
                {/* Central Icon */}
                <div className="relative">
-                 <div className="absolute inset-0 bg-[#FFD700] blur-[40px] opacity-60 rounded-full animate-pulse-glow" />
+                 <div className="absolute inset-0 bg-[#FFD700] blur-2xl opacity-60 rounded-full animate-pulse-glow" />
                  <span className="relative text-[8rem] md:text-[11rem] mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] block transform hover:scale-110 transition-transform">🎪</span>
                </div>
                

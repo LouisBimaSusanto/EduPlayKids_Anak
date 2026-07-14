@@ -79,7 +79,7 @@ export function GameSulapKiko({ onComplete }) {
         </div>
         
         {/* Magic Cauldron / Workbench */}
-        <div className="w-64 h-24 bg-gradient-to-b from-purple-800 to-indigo-900 rounded-[100%] border-4 border-fuchsia-400 shadow-[0_20px_40px_rgba(0,0,0,0.8),_inset_0_10px_20px_rgba(236,72,153,0.5)] -mt-8 flex flex-col items-center justify-center relative">
+        <div className="w-64 h-24 bg-linear-to-b from-purple-800 to-indigo-900 rounded-[100%] border-4 border-fuchsia-400 shadow-[0_20px_40px_rgba(0,0,0,0.8),inset_0_10px_20px_rgba(236,72,153,0.5)] -mt-8 flex flex-col items-center justify-center relative">
           <div className="absolute inset-0 bg-fuchsia-500/20 rounded-[100%] animate-pulse-glow blur-[10px]" />
           
           <AnimatePresence>
@@ -116,16 +116,16 @@ export function GameSulapKiko({ onComplete }) {
                 disabled={selectedWord !== null}
                 className={`
                   relative px-8 py-6 md:px-12 md:py-8
-                  bg-gradient-to-tr from-indigo-600 to-fuchsia-500
+                  bg-linear-to-tr from-indigo-600 to-fuchsia-500
                   text-white font-black text-3xl md:text-5xl tracking-widest
-                  rounded-[2rem] 
-                  border-[4px] border-[#FFF]
-                  border-b-[12px] border-b-indigo-900 
-                  shadow-[0_15px_30px_rgba(0,0,0,0.5),_inset_0_5px_15px_rgba(255,255,255,0.4)]
-                  active:border-b-[4px] active:translate-y-[8px] 
+                  rounded-4xl 
+                  border-4 border-[#FFF]
+                  border-b-12 border-b-indigo-900 
+                  shadow-[0_15px_30px_rgba(0,0,0,0.5),inset_0_5px_15px_rgba(255,255,255,0.4)]
+                  active:border-b-4 active:translate-y-2 
                   transition-all duration-300
-                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-gradient-to-tr from-red-600 to-rose-500 border-b-red-900' : 'hover:-translate-y-2'}
-                  ${isCorrect ? 'bg-gradient-to-tr from-green-500 to-emerald-400 border-b-green-900 shadow-[0_0_50px_#4ade80]' : ''}
+                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-linear-to-tr from-red-600 to-rose-500 border-b-red-900' : 'hover:-translate-y-2'}
+                  ${isCorrect ? 'bg-linear-to-tr from-green-500 to-emerald-400 border-b-green-900 shadow-[0_0_50px_#4ade80]' : ''}
                 `}
               >
                 <span className="drop-shadow-md">{opt}</span>

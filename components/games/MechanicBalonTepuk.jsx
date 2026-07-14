@@ -50,7 +50,7 @@ export function MechanicBalonTepuk({ onComplete }) {
           <div key={b.id} className={`relative flex flex-col items-center ${b.floatClass}`}>
             <div className={`
               w-24 h-32 md:w-32 md:h-40 ${b.color} rounded-[50%] 
-              shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.1),_inset_10px_10px_20px_rgba(255,255,255,0.4)]
+              shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.1),inset_10px_10px_20px_rgba(255,255,255,0.4)]
             `} />
             <div className="w-1 h-16 bg-gray-300 mt-2" />
           </div>
@@ -63,11 +63,11 @@ export function MechanicBalonTepuk({ onComplete }) {
           onPointerDown={handleDrumTap}
           className="
             relative w-64 h-64 md:w-80 md:h-80 rounded-full 
-            bg-gradient-to-b from-yellow-300 to-orange-400
+            bg-linear-to-b from-yellow-300 to-orange-400
             border-8 border-white
-            border-b-[24px] border-b-orange-600
-            shadow-[0_20px_30px_rgba(0,0,0,0.3),_inset_0_10px_0_rgba(255,255,255,0.5)]
-            active:border-b-[8px] active:translate-y-[16px] active:shadow-[0_10px_15px_rgba(0,0,0,0.3),_inset_0_5px_0_rgba(255,255,255,0.5)]
+            border-b-24 border-b-orange-600
+            shadow-[0_20px_30px_rgba(0,0,0,0.3),inset_0_10px_0_rgba(255,255,255,0.5)]
+            active:border-b-8 active:translate-y-4 active:shadow-[0_10px_15px_rgba(0,0,0,0.3),inset_0_5px_0_rgba(255,255,255,0.5)]
             transition-all duration-75 ease-out
             flex items-center justify-center
           "

@@ -24,7 +24,7 @@ export function SuccessModal({ isOpen, onNext, stars = 3 }) {
         <BouncyButton 
           variant="secondary" 
           size="lg" 
-          className="w-full text-2xl md:text-4xl md:py-8 md:rounded-[2rem]" 
+          className="w-full text-2xl md:text-4xl md:py-8 md:rounded-4xl" 
           onClick={onNext}
           sound="success"
         >

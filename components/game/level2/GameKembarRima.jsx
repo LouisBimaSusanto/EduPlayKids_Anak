@@ -131,9 +131,9 @@ export function GameKembarRima({ onComplete }) {
                 animate={{ scale: [0.8, 1.5, 1.2], opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
                 transition={{ duration: 1.5, times: [0, 0.5, 1] }}
-                className="w-64 h-64 md:w-96 md:h-96 bg-green-400 rounded-full border-[8px] border-white shadow-[0_0_80px_#4ade80] flex flex-row items-center justify-center gap-4"
+                className="w-64 h-64 md:w-96 md:h-96 bg-green-400 rounded-full border-8 border-white shadow-[0_0_80px_#4ade80] flex flex-row items-center justify-center gap-4"
               >
-                <div className="absolute top-8 right-12 w-16 h-16 bg-white/40 rounded-full blur-[4px]" />
+                <div className="absolute top-8 right-12 w-16 h-16 bg-white/40 rounded-full blur-xs" />
                 <span className="text-[6rem] md:text-[8rem] drop-shadow-xl">{EMOJI_MAP[roundData.target[0]]}</span>
                 <span className="text-[6rem] md:text-[8rem] drop-shadow-xl">{EMOJI_MAP[roundData.target[1]]}</span>
               </motion.div>

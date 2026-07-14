@@ -47,11 +47,11 @@ export function MechanicKunangKunang({ onComplete }) {
             onPointerDown={(e) => handleTap(icon, e)}
             className="
               relative w-36 h-36 md:w-56 md:h-56 rounded-full mx-auto
-              bg-gradient-to-b from-sky-300 to-blue-500
+              bg-linear-to-b from-sky-300 to-blue-500
               border-8 border-white
-              border-b-[20px] border-b-blue-700
-              shadow-[0_15px_25px_rgba(0,0,0,0.3),_inset_0_8px_0_rgba(255,255,255,0.6)]
-              active:border-b-[6px] active:translate-y-[14px] active:shadow-[0_5px_10px_rgba(0,0,0,0.3),_inset_0_3px_0_rgba(255,255,255,0.6)]
+              border-b-20 border-b-blue-700
+              shadow-[0_15px_25px_rgba(0,0,0,0.3),inset_0_8px_0_rgba(255,255,255,0.6)]
+              active:border-b-[6px] active:translate-y-3.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.3),inset_0_3px_0_rgba(255,255,255,0.6)]
               transition-all duration-100 ease-out
               flex items-center justify-center
             "

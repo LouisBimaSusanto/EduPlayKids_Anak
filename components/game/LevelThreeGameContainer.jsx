@@ -19,13 +19,13 @@ const LevelCompleteModal = ({ onCompleteLevel }) => {
       <button 
         onClick={onCompleteLevel} 
         className="
-          bg-gradient-to-tr from-cyan-400 to-teal-400 
+          bg-linear-to-tr from-cyan-400 to-teal-400 
           text-white font-black text-4xl 
-          py-6 px-16 rounded-[2rem] 
+          py-6 px-16 rounded-4xl 
           border-[6px] border-[#FFF]
-          border-b-[16px] border-b-cyan-900 
-          active:border-b-[6px] active:translate-y-[10px] 
-          shadow-[0_20px_40px_rgba(34,211,238,0.6),_inset_0_5px_15px_rgba(255,255,255,0.6)]
+          border-b-16 border-b-cyan-900 
+          active:border-b-[6px] active:translate-y-2.5 
+          shadow-[0_20px_40px_rgba(34,211,238,0.6),inset_0_5px_15px_rgba(255,255,255,0.6)]
           transition-all duration-100 ease-out
         "
       >
@@ -73,11 +73,11 @@ export function LevelThreeGameContainer({ initialStep = 0, onClose, onCompleteLe
   };
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden bg-gradient-to-b from-blue-900 via-cyan-700 to-teal-400">
+    <div className="fixed inset-0 z-200 overflow-hidden bg-linear-to-b from-blue-900 via-cyan-700 to-teal-400">
       
       {/* Oceanic Background Elements */}
       <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.3)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.3)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Floating Underwater Bubbles */}
       {[...Array(15)].map((_, i) => (
@@ -96,7 +96,7 @@ export function LevelThreeGameContainer({ initialStep = 0, onClose, onCompleteLe
       ))}
 
       {/* Light Rays from above */}
-      <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-1/2 bg-linear-to-b from-white/10 to-transparent pointer-events-none" />
 
       {/* Close/Back Button */}
       <button 

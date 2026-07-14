@@ -25,7 +25,7 @@ export default function ProfilPage() {
   useEffect(() => {
     const maxUnlocked = parseInt(localStorage.getItem("eduplay_max_unlocked") || "1", 10);
     const streak = parseInt(localStorage.getItem("eduplay_streak") || "0", 10);
-    
+
     setStats({
       maxUnlocked,
       streak,
@@ -44,7 +44,7 @@ export default function ProfilPage() {
 
   return (
     <main className="min-h-screen pb-32 overflow-hidden bg-[#1B0F40] relative">
-      
+
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]" />
@@ -52,10 +52,10 @@ export default function ProfilPage() {
       </div>
 
       <header className="w-full pt-12 px-6 relative z-10 text-center mb-8">
-        <motion.h1 
+        <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-lg"
+          className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-b from-white to-purple-200 drop-shadow-lg"
         >
           Paspor Petualang
         </motion.h1>
@@ -63,14 +63,14 @@ export default function ProfilPage() {
 
       {/* Profile ID Card */}
       <div className="max-w-sm mx-auto px-6 relative z-20">
-        <motion.div 
+        <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring" }}
-          className="bg-gradient-to-br from-indigo-500 via-purple-600 to-fuchsia-700 rounded-[2rem] p-6 border-4 border-purple-400 shadow-[0_20px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
+          className="bg-linear-to-br from-indigo-500 via-purple-600 to-fuchsia-700 rounded-4xl p-6 border-4 border-purple-400 shadow-[0_20px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
         >
           {/* Card Shine Effect */}
-          <div className="absolute top-0 right-0 w-[200%] h-full bg-gradient-to-bl from-white/20 to-transparent -translate-y-1/2 rotate-45 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[200%] h-full bg-linear-to-bl from-white/20 to-transparent -translate-y-1/2 rotate-45 pointer-events-none" />
 
           <div className="flex items-center gap-6">
             <div className="relative w-24 h-24 bg-white/20 backdrop-blur-md rounded-full border-4 border-white shadow-lg flex items-center justify-center text-5xl">
@@ -121,15 +121,15 @@ export default function ProfilPage() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
                 className={`
-                  aspect-square rounded-[1.5rem] flex flex-col items-center justify-center p-2 relative
-                  ${isUnlocked 
-                    ? `bg-gradient-to-br ${badge.color} border-2 border-white/50 shadow-[0_10px_20px_rgba(0,0,0,0.3)]` 
+                  aspect-square rounded-3xl flex flex-col items-center justify-center p-2 relative
+                  ${isUnlocked
+                    ? `bg-linear-to-br ${badge.color} border-2 border-white/50 shadow-[0_10px_20px_rgba(0,0,0,0.3)]`
                     : 'bg-white/5 border-2 border-white/10 grayscale opacity-40'}
                 `}
               >
                 <span className="text-4xl drop-shadow-md">{badge.icon}</span>
                 {isUnlocked && (
-                  <div className="absolute inset-0 bg-white/20 mix-blend-overlay rounded-[1.5rem]" />
+                  <div className="absolute inset-0 bg-white/20 mix-blend-overlay rounded-3xl" />
                 )}
               </motion.div>
             );

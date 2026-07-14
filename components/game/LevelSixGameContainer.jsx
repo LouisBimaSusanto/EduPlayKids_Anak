@@ -40,20 +40,20 @@ export function LevelSixGameContainer({ initialStep = 0, onClose, onCompleteLeve
         return (
           <div className="flex flex-col items-center justify-center h-full">
             <h1 className="text-5xl text-amber-900 font-bold mb-8 drop-shadow-md text-center">Bagian Istana ini<br/>sedang dipoles oleh Kiko! 🦊✨</h1>
-            <button onClick={handleGameComplete} className="px-12 py-6 bg-gradient-to-r from-amber-400 to-yellow-300 text-amber-900 font-black text-2xl rounded-full border-[4px] border-white border-b-[8px] border-b-amber-700 active:translate-y-2 active:border-b-[4px] shadow-xl">Lewati Ruangan</button>
+            <button onClick={handleGameComplete} className="px-12 py-6 bg-linear-to-r from-amber-400 to-yellow-300 text-amber-900 font-black text-2xl rounded-full border-4 border-white border-b-8 border-b-amber-700 active:translate-y-2 active:border-b-4 shadow-xl">Lewati Ruangan</button>
           </div>
         );
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden bg-gradient-to-b from-amber-400 via-orange-300 to-yellow-100">
+    <div className="fixed inset-0 z-200 overflow-hidden bg-linear-to-b from-amber-400 via-orange-300 to-yellow-100">
       
       {/* Golden Palace Background Elements */}
       <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
       
       {/* Light rays from top */}
-      <div className="absolute top-0 inset-x-0 h-1/2 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.8)_0%,_transparent_80%)] pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-1/2 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.8)_0%,transparent_80%)] pointer-events-none" />
 
       {/* Floating Sparkles & Crowns */}
       {[...Array(15)].map((_, i) => (

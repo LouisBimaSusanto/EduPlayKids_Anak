@@ -17,18 +17,18 @@ const LevelCompleteModal = ({ onCompleteLevel }) => {
   // Play a celebratory sound on mount if we had one, for now just basic UI
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      <span className="text-[12rem] animate-[bounce_1s_infinite] mb-8">🎉</span>
+      <span className="text-[12rem] animate-bounce mb-8">🎉</span>
       <h1 className="text-6xl font-black text-white drop-shadow-lg mb-12 text-center">Horeee! Selesai!</h1>
       <button 
         onClick={onCompleteLevel} 
         className="
-          bg-gradient-to-tr from-[#00E5C8] to-[#00FFD1] 
+          bg-linear-to-tr from-[#00E5C8] to-[#00FFD1] 
           text-[#004D40] font-black text-4xl 
-          py-6 px-16 rounded-[2rem] 
+          py-6 px-16 rounded-4xl 
           border-[6px] border-[#FFF]
-          border-b-[16px] border-b-[#008A79] 
-          active:border-b-[6px] active:translate-y-[10px] 
-          shadow-[0_20px_40px_rgba(0,229,200,0.4),_inset_0_5px_15px_rgba(255,255,255,0.6)]
+          border-b-16 border-b-[#008A79] 
+          active:border-b-[6px] active:translate-y-2.5 
+          shadow-[0_20px_40px_rgba(0,229,200,0.4),inset_0_5px_15px_rgba(255,255,255,0.6)]
           transition-all duration-100 ease-out
         "
       >
@@ -78,17 +78,17 @@ export function LevelOneGameContainer({ initialStep = 0, onClose, onCompleteLeve
   };
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden bg-gradient-to-t from-indigo-900 via-purple-600 to-emerald-400">
+    <div className="fixed inset-0 z-200 overflow-hidden bg-linear-to-t from-indigo-900 via-purple-600 to-emerald-400">
       
       {/* Magical Background Elements */}
       <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.2)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Progress Bar (Optional, for visual feedback) */}
       {currentStep > 0 && currentStep < 6 && (
         <div className="absolute top-8 left-1/2 -translate-x-1/2 w-2/3 max-w-md h-6 bg-black/30 rounded-full border-4 border-white/20 p-1 z-50">
           <motion.div 
-            className="h-full bg-gradient-to-r from-yellow-400 to-green-400 rounded-full"
+            className="h-full bg-linear-to-r from-yellow-400 to-green-400 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${(currentStep / 5) * 100}%` }}
             transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -92,7 +92,7 @@ export function GameKereta({ onComplete }) {
               🚂
             </span>
             {/* Cargo Box */}
-            <div className="w-48 h-48 md:w-64 md:h-64 border-[12px] border-dashed border-[#FFD700] rounded-[3rem] bg-black/40 shadow-[inset_0_0_50px_rgba(255,215,0,0.3)] ml-4 flex items-center justify-center relative overflow-hidden">
+            <div className="w-48 h-48 md:w-64 md:h-64 border-12 border-dashed border-[#FFD700] rounded-[3rem] bg-black/40 shadow-[inset_0_0_50px_rgba(255,215,0,0.3)] ml-4 flex items-center justify-center relative overflow-hidden">
                {/* Drop target highlight */}
                <div className="absolute inset-0 bg-[#FFD700]/20 animate-[pulse-glow_2s_infinite]" />
                
@@ -132,16 +132,16 @@ export function GameKereta({ onComplete }) {
                 disabled={selectedItem !== null || isSuccess}
                 className={`
                   relative
-                  bg-gradient-to-tr from-blue-500 to-cyan-300 
+                  bg-linear-to-tr from-blue-500 to-cyan-300 
                   text-white font-black
                   p-8 md:p-12
                   rounded-[3rem] 
                   border-[6px] border-[#FFF]
-                  border-b-[20px] border-b-blue-800 
-                  shadow-[0_20px_40px_rgba(0,0,255,0.4),_inset_0_10px_20px_rgba(255,255,255,0.6)]
-                  active:border-b-[6px] active:translate-y-[14px] 
+                  border-b-20 border-b-blue-800 
+                  shadow-[0_20px_40px_rgba(0,0,255,0.4),inset_0_10px_20px_rgba(255,255,255,0.6)]
+                  active:border-b-[6px] active:translate-y-3.5 
                   transition-all duration-300 ease-out
-                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-gradient-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
+                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-linear-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
                 `}
               >
                 <span className="text-6xl md:text-8xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">

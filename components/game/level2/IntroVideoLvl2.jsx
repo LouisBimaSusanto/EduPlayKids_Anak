@@ -20,7 +20,7 @@ export function IntroVideoLvl2({ onComplete }) {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
-        className="relative w-full max-w-4xl aspect-video rounded-[3rem] overflow-hidden border-[8px] border-purple-300 shadow-[0_0_50px_rgba(216,180,254,0.6)] bg-black"
+        className="relative w-full max-w-4xl aspect-video rounded-[3rem] overflow-hidden border-8 border-purple-300 shadow-[0_0_50px_rgba(216,180,254,0.6)] bg-black"
       >
         <iframe 
           className="w-full h-full"
@@ -31,7 +31,7 @@ export function IntroVideoLvl2({ onComplete }) {
         ></iframe>
         
         {/* Magical Purple Overlay effects */}
-        <div className="absolute inset-0 pointer-events-none border-[12px] border-purple-500/30 mix-blend-overlay rounded-[3rem]" />
+        <div className="absolute inset-0 pointer-events-none border-12 border-purple-500/30 mix-blend-overlay rounded-[3rem]" />
       </motion.div>
 
       <motion.button
@@ -41,13 +41,13 @@ export function IntroVideoLvl2({ onComplete }) {
         onClick={onComplete}
         className="
           mt-12 px-12 py-6 
-          bg-gradient-to-tr from-fuchsia-600 to-purple-400 
+          bg-linear-to-tr from-fuchsia-600 to-purple-400 
           text-white font-black text-4xl tracking-wider
           rounded-[3rem] 
           border-[6px] border-[#FFF]
-          border-b-[12px] border-b-purple-900 
-          shadow-[0_20px_40px_rgba(168,85,247,0.5),_inset_0_5px_15px_rgba(255,255,255,0.4)]
-          active:border-b-[6px] active:translate-y-[6px] 
+          border-b-12 border-b-purple-900 
+          shadow-[0_20px_40px_rgba(168,85,247,0.5),inset_0_5px_15px_rgba(255,255,255,0.4)]
+          active:border-b-[6px] active:translate-y-1.5 
           hover:scale-105 transition-all duration-300
           flex items-center gap-4
         "

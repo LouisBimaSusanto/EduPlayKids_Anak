@@ -77,7 +77,7 @@ export function GameRumahKembar({ onComplete }) {
           disabled={selectedHouse !== null}
           className={`
             relative w-48 h-64 md:w-72 md:h-96 
-            bg-gradient-to-t from-orange-600 to-amber-400
+            bg-linear-to-t from-orange-600 to-amber-400
             rounded-t-full border-8 border-orange-900
             shadow-[0_20px_40px_rgba(0,0,0,0.5)]
             flex flex-col items-center justify-end pb-8
@@ -129,7 +129,7 @@ export function GameRumahKembar({ onComplete }) {
           disabled={selectedHouse !== null}
           className={`
             relative w-48 h-64 md:w-72 md:h-96 
-            bg-gradient-to-t from-blue-600 to-cyan-400
+            bg-linear-to-t from-blue-600 to-cyan-400
             rounded-t-full border-8 border-blue-900
             shadow-[0_20px_40px_rgba(0,0,0,0.5)]
             flex flex-col items-center justify-end pb-8

@@ -100,7 +100,7 @@ export function GamePaluEs({ onComplete }) {
                     absolute inset-[-20%] z-20 
                     bg-[#00E5C8]/40 backdrop-blur-md 
                     border-8 border-white/50 rounded-3xl 
-                    shadow-[inset_0_0_50px_rgba(255,255,255,0.8),_0_20px_40px_rgba(0,0,0,0.3)]
+                    shadow-[inset_0_0_50px_rgba(255,255,255,0.8),0_20px_40px_rgba(0,0,0,0.3)]
                     flex items-center justify-center
                     overflow-hidden
                   `}
@@ -127,7 +127,7 @@ export function GamePaluEs({ onComplete }) {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 3] }}
                   transition={{ duration: 1, ease: "easeOut" }}
-                  className="absolute inset-0 z-30 bg-[radial-gradient(circle,_rgba(255,255,255,1)_0%,_transparent_70%)] pointer-events-none"
+                  className="absolute inset-0 z-30 bg-[radial-gradient(circle,rgba(255,255,255,1)_0%,transparent_70%)] pointer-events-none"
                 />
               )}
             </AnimatePresence>
@@ -142,15 +142,15 @@ export function GamePaluEs({ onComplete }) {
           onClick={handleTap}
           disabled={isBroken}
           className={`
-            bg-gradient-to-tr from-purple-500 to-pink-400 
+            bg-linear-to-tr from-purple-500 to-pink-400 
             text-white font-black text-6xl md:text-8xl 
             py-8 px-16 md:py-12 md:px-24
             rounded-[4rem] 
-            border-[8px] border-[#FFF]
-            border-b-[24px] border-b-purple-800 
-            shadow-[0_20px_40px_rgba(128,0,128,0.4),_inset_0_10px_20px_rgba(255,255,255,0.6)]
-            active:border-b-[8px] active:translate-y-[16px] 
-            active:shadow-[0_10px_20px_rgba(128,0,128,0.4),_inset_0_5px_10px_rgba(255,255,255,0.6)]
+            border-8 border-[#FFF]
+            border-b-24 border-b-purple-800 
+            shadow-[0_20px_40px_rgba(128,0,128,0.4),inset_0_10px_20px_rgba(255,255,255,0.6)]
+            active:border-b-8 active:translate-y-4 
+            active:shadow-[0_10px_20px_rgba(128,0,128,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
             transition-all duration-100 ease-out
             ${!isBroken ? 'animate-[bounce_2s_infinite]' : 'opacity-0 scale-50 pointer-events-none transition-all duration-500'}
           `}

@@ -64,7 +64,7 @@ export function GameBatuLoncatan({ onComplete }) {
       </div>
 
       {/* Background River Element */}
-      <div className="absolute inset-x-0 top-1/3 bottom-1/3 bg-gradient-to-b from-[#00E5C8]/20 via-[#00E5C8]/40 to-[#00E5C8]/20 backdrop-blur-sm -z-10 animate-[pulse-glow_4s_infinite] flex items-center justify-center gap-8 md:gap-16">
+      <div className="absolute inset-x-0 top-1/3 bottom-1/3 bg-linear-to-b from-[#00E5C8]/20 via-[#00E5C8]/40 to-[#00E5C8]/20 backdrop-blur-sm -z-10 animate-[pulse-glow_4s_infinite] flex items-center justify-center gap-8 md:gap-16">
         {/* Render the Lilypads on the river */}
         <AnimatePresence>
           {Array.from({ length: roundData.targetTaps }).map((_, i) => (
@@ -113,7 +113,7 @@ export function GameBatuLoncatan({ onComplete }) {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 3] }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="absolute bottom-20 z-10 bg-[radial-gradient(circle,_rgba(0,255,128,0.8)_0%,_transparent_70%)] mix-blend-screen pointer-events-none w-64 h-64"
+              className="absolute bottom-20 z-10 bg-[radial-gradient(circle,rgba(0,255,128,0.8)_0%,transparent_70%)] mix-blend-screen pointer-events-none w-64 h-64"
             />
           )}
         </AnimatePresence>
@@ -122,17 +122,17 @@ export function GameBatuLoncatan({ onComplete }) {
           onClick={handleTap}
           disabled={taps >= roundData.targetTaps || isCrossing}
           className={`
-            bg-gradient-to-tr from-green-500 to-emerald-300 
+            bg-linear-to-tr from-green-500 to-emerald-300 
             text-white font-black text-6xl md:text-8xl 
             py-8 px-16 md:py-12 md:px-24
             rounded-[4rem] 
-            border-[8px] border-[#FFF]
-            border-b-[24px] border-b-green-700 
-            shadow-[0_20px_40px_rgba(0,255,0,0.4),_inset_0_10px_20px_rgba(255,255,255,0.6)]
-            active:border-b-[8px] active:translate-y-[16px] 
-            active:shadow-[0_10px_20px_rgba(0,255,0,0.4),_inset_0_5px_10px_rgba(255,255,255,0.6)]
+            border-8 border-[#FFF]
+            border-b-24 border-b-green-700 
+            shadow-[0_20px_40px_rgba(0,255,0,0.4),inset_0_10px_20px_rgba(255,255,255,0.6)]
+            active:border-b-8 active:translate-y-4 
+            active:shadow-[0_10px_20px_rgba(0,255,0,0.4),inset_0_5px_10px_rgba(255,255,255,0.6)]
             transition-all duration-100 ease-out z-20
-            ${(taps < roundData.targetTaps && !isCrossing) ? 'animate-[bounce_2s_infinite]' : 'opacity-50 grayscale cursor-not-allowed transform translate-y-[16px] border-b-[8px]'}
+            ${(taps < roundData.targetTaps && !isCrossing) ? 'animate-[bounce_2s_infinite]' : 'opacity-50 grayscale cursor-not-allowed transform translate-y-4 border-b-8'}
           `}
         >
           🍃 TAP!

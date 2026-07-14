@@ -106,7 +106,7 @@ export function GamePancuran({ onComplete }) {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: [0, 1, 0], scale: [0.5, 3, 5] }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
-                className="absolute inset-0 z-40 bg-[radial-gradient(circle,_rgba(255,215,0,1)_0%,_transparent_60%)] mix-blend-screen pointer-events-none"
+                className="absolute inset-0 z-40 bg-[radial-gradient(circle,rgba(255,215,0,1)_0%,transparent_60%)] mix-blend-screen pointer-events-none"
               />
             )}
           </AnimatePresence>
@@ -132,17 +132,17 @@ export function GamePancuran({ onComplete }) {
                 disabled={selectedItem !== null || isSuccess}
                 className={`
                   relative
-                  bg-gradient-to-tr from-[#8E2DE2] to-[#4A00E0] 
+                  bg-linear-to-tr from-[#8E2DE2] to-[#4A00E0] 
                   text-white font-black
                   w-32 h-32 md:w-48 md:h-48
                   flex items-center justify-center
-                  rounded-[2rem] 
+                  rounded-4xl 
                   border-[6px] border-[#FFF]
-                  border-b-[16px] border-b-[#2A0080] 
-                  shadow-[0_20px_40px_rgba(142,45,226,0.6),_inset_0_10px_20px_rgba(255,255,255,0.4)]
-                  active:border-b-[6px] active:translate-y-[10px] 
+                  border-b-16 border-b-[#2A0080] 
+                  shadow-[0_20px_40px_rgba(142,45,226,0.6),inset_0_10px_20px_rgba(255,255,255,0.4)]
+                  active:border-b-[6px] active:translate-y-2.5 
                   transition-all duration-300 ease-out
-                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-gradient-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
+                  ${isWrong ? 'animate-[shake_0.5s_ease-in-out] bg-linear-to-tr from-red-500 to-rose-400 border-b-red-800' : 'hover:-translate-y-2'}
                 `}
               >
                 <span className="text-[5rem] md:text-[7rem] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">

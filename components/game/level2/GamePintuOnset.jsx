@@ -80,8 +80,8 @@ export function GamePintuOnset({ onComplete }) {
                 className={`
                   relative flex flex-col items-center justify-center
                   w-48 h-80 md:w-64 md:h-96
-                  bg-gradient-to-b from-[#3D1F0A] to-[#1A0B02]
-                  border-[12px] border-[#8B4513] border-b-0
+                  bg-linear-to-b from-[#3D1F0A] to-[#1A0B02]
+                  border-12 border-[#8B4513] border-b-0
                   rounded-t-full
                   shadow-[0_20px_40px_rgba(0,0,0,0.8)]
                   transition-all duration-500
@@ -113,7 +113,7 @@ export function GamePintuOnset({ onComplete }) {
                       initial={{ scaleX: 1 }}
                       animate={{ scaleX: 0 }}
                       transition={{ duration: 1, ease: "easeInOut" }}
-                      className="absolute inset-0 bg-gradient-to-b from-[#3D1F0A] to-[#1A0B02] rounded-t-full origin-left flex items-center justify-center"
+                      className="absolute inset-0 bg-linear-to-b from-[#3D1F0A] to-[#1A0B02] rounded-t-full origin-left flex items-center justify-center"
                       style={{ backfaceVisibility: 'hidden' }}
                     >
                       <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-[#FFD700] bg-[#FFF5E0] flex items-center justify-center">
@@ -130,7 +130,7 @@ export function GamePintuOnset({ onComplete }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="absolute inset-0 bg-gradient-to-t from-yellow-200 to-white opacity-80 rounded-t-full flex items-center justify-center -z-10"
+                    className="absolute inset-0 bg-linear-to-t from-yellow-200 to-white opacity-80 rounded-t-full flex items-center justify-center -z-10"
                   >
                      <span className="text-7xl">✨</span>
                   </motion.div>
