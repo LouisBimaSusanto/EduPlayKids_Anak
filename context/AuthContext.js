@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const initAuth = async () => {
-  // Cek apakah sedang mode demo (anak)
+      // Cek apakah sedang mode demo (anak)
       const isDemoChild = localStorage.getItem("is_demo_child");
       if (isDemoChild === "true") {
         setUser(DEMO_CHILD_USER);
