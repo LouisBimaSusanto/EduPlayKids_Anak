@@ -140,5 +140,5 @@ export function MagicTrail() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-[300]" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-300" />;
 }

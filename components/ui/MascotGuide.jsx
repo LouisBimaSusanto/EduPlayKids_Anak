@@ -34,7 +34,7 @@ export function MascotGuide({ instruction, onFinishSpeaking }) {
           animate={{ y: 0, x: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          className="fixed bottom-28 left-4 md:left-12 z-[100] flex items-end gap-4 pointer-events-none"
+          className="fixed bottom-28 left-4 md:left-12 z-100 flex items-end gap-4 pointer-events-none"
         >
           {/* The Mascot Character (A cute monkey/owl) */}
           <motion.div 
@@ -62,7 +62,7 @@ export function MascotGuide({ instruction, onFinishSpeaking }) {
             initial={{ scale: 0, originBottomLeft: 1 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, type: "spring" }}
-            className="bg-white px-6 py-4 rounded-[2rem] rounded-bl-none border-4 border-gray-200 shadow-xl max-w-[200px] md:max-w-[280px]"
+            className="bg-white px-6 py-4 rounded-4xl rounded-bl-none border-4 border-gray-200 shadow-xl max-w-50 md:max-w-70"
           >
             <p className="text-xl md:text-2xl font-bold text-gray-700 leading-tight">
               {instruction}

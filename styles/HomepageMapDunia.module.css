@@ -1,0 +1,134 @@
+/* ============================================================
+   HomepageMapDunia.module.css
+   Efek visual custom yang tidak bisa dicapai via Tailwind utility.
+   Digunakan oleh: WorldBoardCTA, BackgroundScene
+   ============================================================ */
+
+/* ── Papan Kayu Utama ─────────────────────────────────────── */
+.woodBoard {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #9A5C28 0%,
+    #7C4B1A 25%,
+    #6B3A10 60%,
+    #4A2608 100%
+  );
+  border-radius: 20px;
+  border: 4px solid #C07830;
+  border-bottom-width: 10px;
+  border-bottom-color: #2A1200;
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(255, 165, 0, 0.18),
+    inset 0 2px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.35);
+  min-width: clamp(280px, 50vw, 460px);
+  max-width: clamp(320px, 55vw, 500px);
+}
+
+/* Serat kayu — overlay garis tipis horizontal */
+.woodBoard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 18px,
+    rgba(0, 0, 0, 0.035) 18px,
+    rgba(0, 0, 0, 0.035) 19px
+  );
+  pointer-events: none;
+}
+
+/* Kilap ringan di bagian atas papan */
+.woodBoard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Baut Dekoratif Papan ─────────────────────────────────── */
+.bolt {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 33% 33%, #E8C860, #9A7830, #4A3810);
+  border: 2px solid #C8A040;
+  box-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  z-index: 2;
+}
+
+/* Garis silang pada baut (tampak sekrup) */
+.bolt::before,
+.bolt::after {
+  content: '';
+  position: absolute;
+  background: rgba(60, 30, 0, 0.5);
+  border-radius: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bolt::before {
+  width: 8px;
+  height: 2px;
+}
+.bolt::after {
+  width: 2px;
+  height: 8px;
+}
+
+/* ── Tombol CTA ───────────────────────────────────────────── */
+.ctaButton {
+  cursor: pointer;
+  transition:
+    box-shadow 0.1s ease,
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.ctaButton:hover {
+  background-color: #FFC933 !important;
+  box-shadow: 0 8px 0 #8A5500, 0 0 32px rgba(255, 184, 0, 0.55) !important;
+}
+
+.ctaButton:active {
+  transform: translateY(5px) !important;
+  box-shadow: 0 1px 0 #8A5500 !important;
+}
+
+/* ── Glow Ring Star Dekorasi ──────────────────────────────── */
+.starGlow {
+  filter: drop-shadow(0 0 4px rgba(255, 220, 50, 0.9));
+}
+
+/* ── Rotasi bintang dekorasi besar ──────────────────────────  */
+@keyframes starSpin {
+  from { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.15); }
+  to   { transform: rotate(360deg) scale(1); }
+}
+.starSpin {
+  animation: starSpin 12s linear infinite;
+}
+
+/* ── Animasi semua rel kereta mengalir ──────────────────────  */
+@keyframes railFlow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -80; }
+}
+.railFlow {
+  animation: railFlow 3s linear infinite;
+}
