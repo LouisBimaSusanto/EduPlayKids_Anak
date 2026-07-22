@@ -18,7 +18,7 @@
  */
 
 import {
-  Star, Flame, Bell, Plus, ChevronRight,
+  Star, Flame, Bell, Plus, ChevronRight, ChevronLeft,
   Home, User, HelpCircle,
 } from 'lucide-react';
 import { ICONS } from '@/config/icons';
@@ -34,6 +34,7 @@ const LUCIDE_MAP = {
   Bell,
   Plus,
   ChevronRight,
+  ChevronLeft,
   Home,
   User,
 };
