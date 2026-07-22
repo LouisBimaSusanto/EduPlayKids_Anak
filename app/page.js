@@ -32,7 +32,9 @@ const FALLBACK_MANIFEST = {
       id: 'fonik',
       title: 'Fonik',
       worlds: [
-        { id: 'suku-kata', title: 'Suku Kata' },
+        { id: 'suku-kata', title: 'Dunia Suku Kata' },
+        { id: 'kata', title: 'Dunia Kata' },
+        { id: 'kalimat', title: 'Dunia Kalimat' },
       ],
     },
   ],
@@ -111,12 +113,6 @@ export default function HomePage() {
 
   const currentWorld = worlds[activeDot] ?? null;
 
-  // Judul papan: split "Dunia Suku Kata" → ["Dunia", "Suku Kata"]
-  // Anggap kata pertama = baris 1, sisanya = baris 2
-  const titleWords  = (currentWorld?.title ?? 'Dunia Suku Kata').split(' ');
-  const worldLine1  = titleWords[0] ?? 'Dunia';
-  const worldLine2  = titleWords.slice(1).join(' ') || 'Suku Kata';
-
   // Nama tampilan: prioritas anak, fallback user, fallback default
   const displayName =
     user?.name                    ??
@@ -126,6 +122,18 @@ export default function HomePage() {
   // Level & progress — pakai current_level dari user atau maxUnlocked sebagai proxy
   const userLevel     = user?.current_level ?? maxUnlocked;
   const levelProgress = (maxUnlocked % 6) * (100 / 6);  // XP dalam 1 level (6 node per world)
+
+  // Mapping worlds ke format yang diharapkan HomepageMapDunia (memiliki line1 dan line2)
+  const mappedWorlds = worlds.map(w => {
+    const titleWords = (w.title ?? '').split(' ');
+    const line1 = titleWords[0] ?? 'Dunia';
+    const line2 = titleWords.slice(1).join(' ') || 'Suku Kata';
+    return {
+      ...w,
+      line1,
+      line2,
+    };
+  });
 
   // ── Handler navigasi ─────────────────────────────────────
   const handleEnterWorld = () => {
@@ -168,10 +176,8 @@ export default function HomePage() {
       onAddStreak={()        => { /* TODO: logic tambah streak  */ }}
 
       /* World Board */
-      worldLine1={worldLine1}
-      worldLine2={worldLine2}
+      worlds={mappedWorlds}
       ctaLabel="Masuk ke Dunia"
-      dotCount={worlds.length || 1}
       activeDot={activeDot}
       onCTA={handleEnterWorld}
       onDotChange={setActiveDot}

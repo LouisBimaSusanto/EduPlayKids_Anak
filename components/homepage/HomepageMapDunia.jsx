@@ -1,17 +1,5 @@
 'use client';
 
-/**
- * ============================================================
- * HomepageMapDunia — Komponen Utama Homepage
- * ============================================================
- * Hanya bertugas menyusun (compose) sub-komponen:
- *   BackgroundScene → HeaderBar → WorldBoardCTA → BottomNavigation
- *
- * Semua data datang dari parent (app/page.js) via props.
- * Tidak ada state lokal, tidak ada fetch data di sini.
- * ============================================================
- */
-
 import { BackgroundScene }  from './BackgroundScene';
 import { HeaderBar }        from './HeaderBar';
 import { WorldBoardCTA }    from './WorldBoardCTA';
@@ -35,13 +23,11 @@ import { BottomNavigation } from './BottomNavigation';
  * @param {function} props.onAddStreak
  *
  * World board props:
- * @param {string}   props.worldLine1       Judul baris 1 (putih)
- * @param {string}   props.worldLine2       Judul baris 2 (emas)
+ * @param {Array<{line1:string, line2:string}>} props.worlds   Daftar dunia (min. 1)
  * @param {string}   props.ctaLabel         Teks tombol CTA
- * @param {number}   props.dotCount         Jumlah dunia / dot indicator
- * @param {number}   props.activeDot        Indeks dunia aktif
+ * @param {number}   props.activeDot        Indeks dunia aktif (controlled)
  * @param {function} props.onCTA            Callback "Masuk ke Dunia"
- * @param {function} props.onDotChange      Callback ganti dunia (idx) => void
+ * @param {function} props.onDotChange      Callback saat dunia aktif berubah (idx) => void
  */
 export function HomepageMapDunia({
   // ── Header ──────────────────────────────────────────────
@@ -59,10 +45,12 @@ export function HomepageMapDunia({
   onAddStreak,
 
   // ── World Board ──────────────────────────────────────────
-  worldLine1          = 'Dunia',
-  worldLine2          = 'Suku Kata',
+  worlds              = [
+    { line1: 'Dunia', line2: 'Suku Kata' },
+    // { line1: 'Dunia', line2: 'Kalimat' },
+    // { line1: 'Dunia', line2: 'Cerita' },
+  ],
   ctaLabel            = 'Masuk ke Dunia',
-  dotCount            = 1,
   activeDot           = 0,
   onCTA,
   onDotChange,
@@ -105,10 +93,8 @@ export function HomepageMapDunia({
         }}
       >
         <WorldBoardCTA
-          worldLine1={worldLine1}
-          worldLine2={worldLine2}
+          worlds={worlds}
           ctaLabel={ctaLabel}
-          dotCount={dotCount}
           activeDot={activeDot}
           onCTA={onCTA}
           onDotChange={onDotChange}

@@ -42,6 +42,12 @@ export const ICONS = {
   /** Panah di tombol CTA "Masuk ke Dunia". */
   ctaArrow: { type: 'lucide', name: 'ChevronRight' },
 
+  /** Panah manual kiri. */
+  chevronLeft: { type: 'lucide', name: 'ChevronLeft' },
+
+  /** Panah manual kanan. */
+  chevronRight: { type: 'lucide', name: 'ChevronRight' },
+
   // ── Bottom Navigation ──────────────────────────────────────
   /** Ikon tab Peta (halaman utama). */
   navMap: { type: 'lucide', name: 'Home' },
