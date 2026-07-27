@@ -60,35 +60,39 @@ export function HeaderBar({
         {/* ── KIRI: Avatar + Nama + Level + XP ───────────────── */}
         <motion.button
           onClick={onAvatarClick}
-          className="flex items-center gap-3 flex-shrink-0"
+          className="flex items-center gap-3 flex-shrink-0 pr-4 pl-1 py-1 rounded-full"
           whileTap={{ scale: 0.94 }}
-          style={{ minWidth: 0 }}
+          style={{ 
+            minWidth: 0,
+            background: '#FFF5E0',
+            border: `2px solid #2C136A`,
+            boxShadow: `0 4px 12px rgba(0,0,0,0.4)`
+          }}
         >
           {/* Lingkaran avatar */}
           <div
-            className="flex items-center justify-center rounded-2xl flex-shrink-0"
+            className="flex items-center justify-center rounded-full flex-shrink-0"
             style={{
-              width:  THEME.touch.icon,
-              height: THEME.touch.icon,
-              background:  '#FFF5E0',
-              border:      `3px solid ${THEME.colors.gold}`,
-              boxShadow:   `0 5px 0 ${THEME.colors.goldDark}, 0 8px 20px rgba(0,0,0,0.55)`,
+              width:  48,
+              height: 48,
+              background:  '#FFF',
+              border:      `2px solid ${THEME.colors.gold}`,
             }}
           >
-            <AppIcon name="userAvatar" size={36} />
+            <AppIcon name="userAvatar" size={32} />
           </div>
 
           {/* Nama + Level + XP bar */}
           <div className="flex flex-col items-start gap-0.5">
             <span
-              className="font-black leading-tight whitespace-nowrap"
-              style={{ color: THEME.colors.textWhite, fontSize: 'clamp(0.78rem, 1.4vw, 1rem)' }}
+              className="font-black leading-none whitespace-nowrap text-left"
+              style={{ color: '#1E1B4B', fontSize: 'clamp(0.78rem, 1.4vw, 1rem)' }}
             >
               Halo, {userName}!
             </span>
             <span
-              className="font-bold leading-tight"
-              style={{ color: THEME.colors.textGold, fontSize: '0.72rem' }}
+              className="font-bold leading-none text-left"
+              style={{ color: '#4F46E5', fontSize: '0.72rem', marginBottom: 2 }}
             >
               Level {userLevel}
             </span>
@@ -96,7 +100,7 @@ export function HeaderBar({
               value={levelProgress}
               max={levelMax}
               color={THEME.colors.gold}
-              bgColor="rgba(255,255,255,0.15)"
+              bgColor="rgba(0,0,0,0.1)"
               height={6}
               className="w-24"
             />
