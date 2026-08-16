@@ -350,7 +350,6 @@ export function ModuleMapPage({
 }) {
   const [modules, setModules]         = useState([]);
   const [progressMap, setProgressMap] = useState({});
-  const [selected, setSelected]       = useState(null);
   const [loading, setLoading]         = useState(true);
   const [mapHeight, setMapHeight]     = useState(400);
 
@@ -427,12 +426,6 @@ export function ModuleMapPage({
         scrollRef.current.scrollTo({ left: Math.max(0, activeIndex * NODE_SPACING - 100), behavior: 'smooth' });
     }, [activeIndex, modules.length]);
 
-    const handleStart = useCallback(() => {
-        if (!selected) return;
-        setSelected(null);
-        onEnterWorld?.(selected);
-    }, [selected, onEnterWorld]);
-
     return (
         <main className="relative w-full overflow-hidden" style={{ height: '100dvh', minHeight: '100vh' }}>
         <BackgroundScene />
@@ -486,7 +479,7 @@ export function ModuleMapPage({
                         isLocked={mod.isLocked}
                         isActive={mod.isActive}
                         isCompleted={mod.isCompleted}
-                        onClick={() => setSelected(mod)}
+                        onClick={() => onEnterWorld?.(mod)}
                         />
                     </div>
                     );
@@ -511,9 +504,10 @@ export function ModuleMapPage({
 
             {/* Bottom bar */}
             {!loading && (
-            <div className="flex items-center justify-between px-8 py-4 flex-shrink-0 bg-transparent absolute bottom-0 left-0 right-0 z-40 pb-8">
+            <div className="flex items-center justify-between px-8 flex-shrink-0 bg-transparent absolute left-0 right-0 z-40 pointer-events-none"
+              style={{ bottom: 72 }}>
                 <button
-                className="flex items-center gap-2 rounded-full px-5 py-3 font-black text-sm transition-transform active:scale-95"
+                className="flex items-center gap-2 rounded-full px-5 py-3 font-black text-sm transition-transform active:scale-95 pointer-events-auto"
                 style={{ background: 'rgba(25,12,4,0.8)', border: '2px solid rgba(255,215,0,0.4)', color: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}
                 >
                 📖 Daftar Modul
@@ -531,7 +525,7 @@ export function ModuleMapPage({
                 ))}
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full px-5 py-3"
+                <div className="flex items-center gap-2 rounded-full px-5 py-3 pointer-events-auto"
                 style={{ background: 'rgba(25,12,4,0.8)', border: '2px solid rgba(255,215,0,0.4)', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
                 <span style={{ fontSize: 22 }}>⭐</span>
                 <span className="font-black text-base" style={{ color: THEME.colors.gold }}>
@@ -544,13 +538,8 @@ export function ModuleMapPage({
         </div>
 
         {/* Removed BottomNavigation as requested by mockup design */}
+        <BottomNavigation />
 
-        <ModuleDetailSheet
-            module={selected}
-            progress={selected?.progress || 0}
-            onStart={handleStart}
-            onClose={() => setSelected(null)}
-        />
         </main>
     );
 }

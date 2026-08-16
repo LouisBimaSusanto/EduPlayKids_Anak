@@ -4,6 +4,10 @@ import { BackgroundScene }  from './BackgroundScene';
 import { HeaderBar }        from './HeaderBar';
 import { WorldBoardCTA }    from './WorldBoardCTA';
 import { BottomNavigation } from './BottomNavigation';
+import { THEME }            from '@/config/theme';
+import { useState, useEffect } from 'react';
+
+const GAME_REPO_URL = process.env.NEXT_PUBLIC_GAME_REPO_URL || 'http://localhost:3002';
 
 /**
  * @param {object}   props
@@ -22,12 +26,14 @@ import { BottomNavigation } from './BottomNavigation';
  * @param {function} props.onAddStars
  * @param {function} props.onAddStreak
  *
- * World board props:
- * @param {Array<{line1:string, line2:string}>} props.worlds   Daftar dunia (min. 1)
- * @param {string}   props.ctaLabel         Teks tombol CTA
- * @param {number}   props.activeDot        Indeks dunia aktif (controlled)
- * @param {function} props.onCTA            Callback "Masuk ke Dunia"
- * @param {function} props.onDotChange      Callback saat dunia aktif berubah (idx) => void
+ * Module data props:
+ * @param {number}   props.moduleIndex      — Nomor modul (e.g. 1)
+ * @param {string}   props.moduleTitle      — Judul modul (e.g. "Membaca")
+ * @param {string}   props.moduleDesc       — Deskripsi singkat modul
+ * @param {string}   props.modulId          — ID modul (untuk lookup progress localStorage)
+ * @param {Array}    props.worlds           — Daftar level/dunia dalam modul
+ * @param {object}   props.progressMap      — Map key:value dari localStorage
+ * @param {function} props.onCTA            — Callback saat user klik level (dipanggil dgn levelId)
  */
 export function HomepageMapDunia({
   // ── Header ──────────────────────────────────────────────
@@ -44,26 +50,36 @@ export function HomepageMapDunia({
   onAddStars,
   onAddStreak,
 
-  // ── World Board ──────────────────────────────────────────
-  worlds              = [
-    { line1: 'Dunia', line2: 'Suku Kata' },
-    // { line1: 'Dunia', line2: 'Kalimat' },
-    // { line1: 'Dunia', line2: 'Cerita' },
-  ],
-  ctaLabel            = 'Masuk ke Dunia',
-  activeDot           = 0,
+  // ── Module Data ──────────────────────────────────────────
+  moduleIndex         = 1,
+  moduleTitle         = 'Membaca',
+  moduleDesc          = '',
+  modulId             = '',
+  worlds              = [],
+  progressMap         = {},
   onCTA,
-  onDotChange,
 }) {
+  const [totalStars, setTotalStars] = useState(30);
+
+  useEffect(() => {
+    fetch(`${GAME_REPO_URL}/api/manifest`)
+      .then(r => r.json())
+      .then(d => {
+        const mods = d.modules?.filter(m => m.is_active) || [];
+        setTotalStars(mods.reduce((acc, m) => acc + (m.worlds?.length || 0), 0) * 3);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <main
       className="relative w-full overflow-hidden"
       style={{
-        height:    '100dvh',  // Dynamic viewport height (safe for mobile)
+        height:    '100dvh',
         minHeight: '100vh',
       }}
     >
-      {/* ── Layer 0: Latar Belakang Langit Malam ─────────────── */}
+      {/* ── Layer 0: Latar Belakang ───────────────────────────── */}
       <BackgroundScene />
 
       {/* ── Layer 1: Header (fixed top) ──────────────────────── */}
@@ -82,26 +98,47 @@ export function HomepageMapDunia({
         onAddStreak={onAddStreak}
       />
 
-      {/* ── Layer 2: Konten Utama (papan judul, ditengah vertikal) */}
+      {/* ── Layer 2: Peta Level Horizontal (tengah vertikal) ──── */}
       <div
         className="relative z-10 flex items-center justify-center"
         style={{
-          height: '100%',
-          /* Beri ruang untuk header & bottom nav agar papan benar-benar di tengah */
-          paddingTop:    80,
-          paddingBottom: 90,
+          height:        '100%',
+          paddingTop:    76,
+          paddingBottom: 72,
         }}
       >
         <WorldBoardCTA
+          moduleIndex={moduleIndex}
+          moduleTitle={moduleTitle}
+          moduleDesc={moduleDesc}
+          modulId={modulId}
           worlds={worlds}
-          ctaLabel={ctaLabel}
-          activeDot={activeDot}
+          progressMap={progressMap}
           onCTA={onCTA}
-          onDotChange={onDotChange}
         />
       </div>
 
-      {/* ── Layer 3: Bottom Navigation (fixed bottom) ─────────── */}
+      {/* ── Layer 3: Bottom Bar konsisten + Bottom Navigation ─── */}
+      <div className="flex items-center justify-between px-8 flex-shrink-0 bg-transparent absolute left-0 right-0 z-40 pointer-events-none"
+        style={{ bottom: 72 }}>
+        <button
+          onClick={onAvatarClick}
+          className="flex items-center gap-2 rounded-full px-5 py-3 font-black text-sm transition-transform active:scale-95 pointer-events-auto"
+          style={{ background: 'rgba(25,12,4,0.8)', border: '2px solid rgba(255,215,0,0.4)', color: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}
+        >
+          📖 Daftar Modul
+        </button>
+
+        <div className="flex items-center gap-2 rounded-full px-5 py-3 pointer-events-auto"
+          style={{ background: 'rgba(25,12,4,0.8)', border: '2px solid rgba(255,215,0,0.4)', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+          <span style={{ fontSize: 22 }}>⭐</span>
+          <span className="font-black text-base" style={{ color: THEME.colors.gold }}>
+            {walletStars}/{totalStars}
+          </span>
+          <span style={{ fontSize: 20, marginLeft: 8 }}>🎁</span>
+        </div>
+      </div>
+
       <BottomNavigation />
     </main>
   );

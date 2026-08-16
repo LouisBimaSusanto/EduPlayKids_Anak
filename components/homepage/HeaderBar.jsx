@@ -13,6 +13,7 @@
  * ============================================================
  */
 
+import Link       from 'next/link';
 import { motion } from 'framer-motion';
 import { AppIcon }      from '@/components/shared/AppIcon';
 import { ProgressBar }  from '@/components/shared/ProgressBar';
@@ -58,17 +59,17 @@ export function HeaderBar({
       <div className="flex items-center justify-between gap-2 w-full max-w-screen-xl mx-auto">
 
         {/* ── KIRI: Avatar + Nama + Level + XP ───────────────── */}
-        <motion.button
-          onClick={onAvatarClick}
-          className="flex items-center gap-3 flex-shrink-0 pr-4 pl-1 py-1 rounded-full"
-          whileTap={{ scale: 0.94 }}
-          style={{ 
-            minWidth: 0,
-            background: '#FFF5E0',
-            border: `2px solid #2C136A`,
-            boxShadow: `0 4px 12px rgba(0,0,0,0.4)`
-          }}
-        >
+        <Link href="/profil">
+          <motion.div
+            className="flex items-center gap-3 flex-shrink-0 pr-4 pl-1 py-1 rounded-full cursor-pointer"
+            whileTap={{ scale: 0.94 }}
+            style={{ 
+              minWidth: 0,
+              background: '#FFF5E0',
+              border: `2px solid #2C136A`,
+              boxShadow: `0 4px 12px rgba(0,0,0,0.4)`
+            }}
+          >
           {/* Lingkaran avatar */}
           <div
             className="flex items-center justify-center rounded-full flex-shrink-0"
@@ -105,7 +106,8 @@ export function HeaderBar({
               className="w-24"
             />
           </div>
-        </motion.button>
+        </motion.div>
+      </Link>
 
         {/* ── TENGAH: Badge Bintang + Badge Api ──────────────── */}
         <div className="flex items-center gap-2 flex-shrink-0">
