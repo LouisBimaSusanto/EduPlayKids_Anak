@@ -1,55 +1,88 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { ModuleMapPage } from '@/components/homepage/ModuleMapPage';
+import { useState, useCallback, useEffect } from 'react';
+import { ModuleMapPage }    from '@/components/homepage/ModuleMapPage';
 import { HomepageMapDunia } from '@/components/homepage/HomepageMapDunia';
-import { useRouter } from 'next/navigation';
+import { useRouter }        from 'next/navigation';
+
+const GAME_REPO_URL = process.env.NEXT_PUBLIC_GAME_REPO_URL || 'http://localhost:3002';
 
 const DEMO_USER = {
   userName: 'Ara Demo', userLevel: 2, levelProgress: 35,
   levelMax: 100, walletStars: 50, streakCount: 0, hasNotification: false,
 };
 
+function readAllProgress() {
+  if (typeof window === 'undefined') return {};
+  const result = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key?.startsWith('progress_')) result[key] = localStorage.getItem(key);
+  }
+  return result;
+}
+
 export default function HomePage() {
   const router = useRouter();
-  const [activeModule, setActiveModule] = useState(null);
-  const [activeDot, setActiveDot] = useState(0);
+  
+  // Ambil state awal dari sessionStorage jika ada
+  const [activeModule, setActiveModule] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = sessionStorage.getItem('last_active_module');
+      if (saved) {
+        try { return JSON.parse(saved); } catch (e) {}
+      }
+    }
+    return null;
+  });
+  
+  const [progressMap,  setProgressMap]  = useState({});
 
-  const handleEnterWorld = useCallback((mod) => {
-    setActiveDot(0);
-    setActiveModule(mod);
+  // Baca progress dari localStorage setiap kali halaman mendapat fokus
+  useEffect(() => {
+    setProgressMap(readAllProgress());
+    const onFocus = () => setProgressMap(readAllProgress());
+    window.addEventListener('focus', onFocus);
+    return () => window.removeEventListener('focus', onFocus);
   }, []);
 
-  const handleCTA = useCallback(() => {
+  const handleEnterModule = useCallback((mod) => {
+    setProgressMap(readAllProgress());
+    setActiveModule(mod);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('last_active_module', JSON.stringify(mod));
+    }
+  }, []);
+
+  // Klik level di peta level → langsung masuk ke game
+  const handleLevelClick = useCallback((levelId) => {
     if (!activeModule) return;
-    const worlds = activeModule.worlds || [];
-    const activeWorld = worlds.find(w => localStorage.getItem(`progress_${activeModule.id}_${w.id}`) !== 'completed') || worlds[activeDot];
-    if (activeWorld) router.push(`/level/${activeModule.id}/${activeWorld.id}`);
-  }, [activeModule, activeDot, router]);
+    router.push(`/level/${activeModule.id}/${levelId}`);
+  }, [activeModule, router]);
 
   const headerProps = {
     ...DEMO_USER,
-    onAvatarClick: () => setActiveModule(null), // kembali ke peta
-    onMascotClick: () => router.push('/toko'),
-    onNotificationClick: () => { },
-    onAddStars: () => { },
-    onAddStreak: () => { },
+    onAvatarClick:        () => {
+      setActiveModule(null);
+      if (typeof window !== 'undefined') sessionStorage.removeItem('last_active_module');
+    },
+    onMascotClick:        () => router.push('/toko'),
+    onNotificationClick:  () => {},
+    onAddStars:           () => {},
+    onAddStreak:          () => {},
   };
 
   if (activeModule) {
     return (
       <HomepageMapDunia
         {...headerProps}
-        worlds={activeModule.worlds?.map(w => ({
-          line1: activeModule.title.replace(/Modul \d+ - /, ''),
-          line2: w.title,
-          levelId: w.id,
-          modulId: activeModule.id,
-        })) || []}
-        ctaLabel="Masuk ke Dunia"
-        activeDot={activeDot}
-        onCTA={handleCTA}
-        onDotChange={setActiveDot}
+        moduleIndex={activeModule.index || 1}
+        moduleTitle={activeModule.title}
+        moduleDesc={activeModule.description || ''}
+        modulId={activeModule.id}
+        worlds={activeModule.worlds || []}
+        progressMap={progressMap}
+        onCTA={handleLevelClick}
       />
     );
   }
@@ -57,7 +90,7 @@ export default function HomePage() {
   return (
     <ModuleMapPage
       {...headerProps}
-      onEnterWorld={handleEnterWorld}
+      onEnterWorld={handleEnterModule}
     />
   );
 }
