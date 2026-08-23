@@ -78,7 +78,8 @@ export function CurtainSplashScreen() {
             {/* Massive Volumetric Spotlights hitting the plaque */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,215,0,0.4)_0%,transparent_60%)] mix-blend-screen opacity-80 animate-[pulse_4s_infinite]" />
 
-            <div className="relative bg-[#3D1F0A] px-12 py-10 md:px-20 md:py-16 rounded-[4rem] border-16 border-[#FFD700] border-b-24 border-b-[#B8860B] shadow-[0_40px_80px_rgba(0,0,0,1),inset_0_5px_30px_rgba(0,0,0,0.8)] flex flex-col items-center animate-[float_4s_infinite]">
+            <div className="relative bg-[#3D1F0A] rounded-[3rem] border-16 border-[#FFD700] border-b-24 border-b-[#B8860B] shadow-[0_40px_80px_rgba(0,0,0,1),inset_0_5px_30px_rgba(0,0,0,0.8)] flex flex-col items-center animate-[float_4s_infinite] overflow-hidden"
+               style={{ padding: 'clamp(1.5rem, 4vmin, 4rem) clamp(2rem, 6vmin, 5rem)' }}>
                
                {/* Plaque Corner Ornaments */}
                <div className="absolute -top-6 -left-6 w-12 h-12 bg-[#FFD700] rounded-full shadow-lg border-4 border-[#B8860B]" />
@@ -89,23 +90,29 @@ export function CurtainSplashScreen() {
                {/* Central Icon */}
                <div className="relative">
                  <div className="absolute inset-0 bg-[#FFD700] blur-2xl opacity-60 rounded-full animate-pulse-glow" />
-                 <span className="relative text-[8rem] md:text-[11rem] mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] block transform hover:scale-110 transition-transform">🎪</span>
+                 <span
+                   className="relative mb-2 drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] block transition-transform"
+                   style={{ fontSize: 'clamp(4rem, 14vmin, 8rem)' }}
+                 >🎪</span>
                </div>
                
                {/* Typography */}
-               <h1 className="text-4xl md:text-6xl font-black text-shimmer drop-shadow-[0_5px_0_#000] tracking-widest text-center leading-tight mt-4">
+               <h1
+                 className="font-black text-shimmer drop-shadow-[0_5px_0_#000] tracking-widest text-center leading-tight"
+                 style={{ fontSize: 'clamp(1.5rem, 5vmin, 3.75rem)', marginTop: 'clamp(0.5rem, 1vmin, 1rem)' }}
+               >
                  MEMBUKA<br/>PANGGUNG...
                </h1>
             </div>
             
             {/* Glowing Magical Loading Orbs */}
-            <div className="mt-16 flex gap-6">
+            <div style={{ marginTop: 'clamp(0.5rem, 3vmin, 4rem)' }} className="flex gap-6">
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  animate={{ y: [0, -30, 0], scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+                  animate={{ y: [0, -20, 0], scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
                   transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                  className="w-8 h-8 rounded-full bg-[#00E5C8] border-4 border-white shadow-[0_0_20px_rgba(0,229,200,1)]"
+                  className="w-6 h-6 rounded-full bg-[#00E5C8] border-4 border-white shadow-[0_0_20px_rgba(0,229,200,1)]"
                 />
               ))}
             </div>

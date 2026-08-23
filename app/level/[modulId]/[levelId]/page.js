@@ -57,10 +57,10 @@ export default function LevelPage({ params }) {
   );
 
   return (
-    <main className="fixed inset-0 bg-gradient-to-b from-sky-300 to-sky-100 flex flex-col overflow-hidden">
-      <header className="p-6 flex items-center gap-6 z-10">
+    <main className="fixed inset-0 h-[100dvh] w-[100dvw] bg-gradient-to-b from-sky-300 to-sky-100 flex flex-col overflow-hidden">
+      <header className="p-2 md:p-4 flex items-center gap-4 z-10 shrink-0">
         <button onClick={() => router.push('/')}
-          className="shrink-0 w-16 h-16 rounded-full bg-red-500 border-4 border-white border-b-8 border-b-red-700 flex items-center justify-center text-white font-black text-3xl active:border-b-4 active:translate-y-1 transition-all">
+          className="shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-full bg-red-500 border-2 md:border-4 border-white border-b-4 md:border-b-8 border-b-red-700 flex items-center justify-center text-white font-black text-xl md:text-3xl active:border-b-2 active:md:border-b-4 active:translate-y-1 transition-all">
           ✕
         </button>
         <div className="flex-1 h-10 bg-white/50 rounded-full border-4 border-white overflow-hidden">
