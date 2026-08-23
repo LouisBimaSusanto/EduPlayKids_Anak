@@ -21,19 +21,25 @@ export const metadata = {
 
 export const viewport = {
   themeColor: "#1B0F40",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 import { CurtainSplashScreen } from "@/components/ui/CurtainSplashScreen";
+import { LandscapeGuard }    from "@/components/ui/LandscapeGuard";
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="id"
-      className={`${baloo.variable} font-sans h-full antialiased`}
+      className={`${baloo.variable} font-sans antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="font-sans">
         <AuthProvider>
           <CurtainSplashScreen />
+          <LandscapeGuard />
           {children}
         </AuthProvider>
       </body>
