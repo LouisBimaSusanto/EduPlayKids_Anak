@@ -25,21 +25,21 @@ function readAllProgress() {
 export default function HomePage() {
   const router = useRouter();
   
-  // Ambil state awal dari sessionStorage jika ada
-  const [activeModule, setActiveModule] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = sessionStorage.getItem('last_active_module');
-      if (saved) {
-        try { return JSON.parse(saved); } catch (e) {}
-      }
-    }
-    return null;
-  });
+  // Ambil state awal dari sessionStorage jika ada, tapi hindari hydration mismatch
+  const [activeModule, setActiveModule] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
   
   const [progressMap,  setProgressMap]  = useState({});
 
-  // Baca progress dari localStorage setiap kali halaman mendapat fokus
   useEffect(() => {
+    setIsMounted(true);
+    // Baca sessionStorage
+    const saved = sessionStorage.getItem('last_active_module');
+    if (saved) {
+      try { setActiveModule(JSON.parse(saved)); } catch (e) {}
+    }
+    
+    // Baca progress
     setProgressMap(readAllProgress());
     const onFocus = () => setProgressMap(readAllProgress());
     window.addEventListener('focus', onFocus);
