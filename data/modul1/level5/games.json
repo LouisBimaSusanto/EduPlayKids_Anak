@@ -1,0 +1,45 @@
+{
+  "intro_video_url": "https://www.youtube.com/embed/gJ4VXXP2Tqw?autoplay=1&controls=1&modestbranding=1&rel=0",
+  "games": [
+    {
+      "id": "balon-suku-kata",
+      "title": "Balon Suku Kata",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul1/balon-suku-kata",
+      "thumbnail": null
+    },
+    {
+      "id": "meriam-rima",
+      "title": "Meriam Rima",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul1/meriam-rima",
+      "thumbnail": null
+    },
+    {
+      "id": "rakit-roket",
+      "title": "Rakit Roket",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul1/rakit-roket",
+      "thumbnail": null
+    },
+    {
+      "id": "sulap-kembang-api",
+      "title": "Sulap Kembang Api",
+      "order": 4,
+      "is_active": true,
+      "path": "/games/modul1/sulap-kembang-api",
+      "thumbnail": null
+    },
+    {
+      "id": "tangkap-fonem",
+      "title": "Tangkap Fonem",
+      "order": 5,
+      "is_active": true,
+      "path": "/games/modul1/tangkap-fonem",
+      "thumbnail": null
+    }
+  ]
+}

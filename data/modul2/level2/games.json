@@ -1,0 +1,29 @@
+{
+  "intro_video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&modestbranding=1&rel=0",
+  "games": [
+    {
+      "id": "dokter-angka",
+      "title": "Dokter Angka",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul2/dokter-angka",
+      "thumbnail": null
+    },
+    {
+      "id": "kode-rahasia",
+      "title": "Kode Rahasia",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul2/kode-rahasia",
+      "thumbnail": null
+    },
+    {
+      "id": "peta-bajak-laut",
+      "title": "Peta Bajak Laut",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul2/peta-bajak-laut",
+      "thumbnail": null
+    }
+  ]
+}

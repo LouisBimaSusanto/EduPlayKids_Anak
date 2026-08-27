@@ -7,7 +7,7 @@ import { BottomNavigation } from './BottomNavigation';
 import { THEME }            from '@/config/theme';
 import { useState, useEffect } from 'react';
 
-const GAME_REPO_URL = process.env.NEXT_PUBLIC_GAME_REPO_URL || 'http://localhost:3002';
+
 
 /**
  * @param {object}   props
@@ -62,7 +62,7 @@ export function HomepageMapDunia({
   const [totalStars, setTotalStars] = useState(30);
 
   useEffect(() => {
-    fetch(`${GAME_REPO_URL}/api/manifest`)
+    fetch(`/api/manifest`)
       .then(r => r.json())
       .then(d => {
         const mods = d.modules?.filter(m => m.is_active) || [];

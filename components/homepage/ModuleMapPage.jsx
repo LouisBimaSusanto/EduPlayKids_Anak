@@ -8,7 +8,7 @@ import { BottomNavigation }  from './BottomNavigation';
 import { AppIcon }           from '@/components/shared/AppIcon';
 import { THEME }             from '@/config/theme';
 
-const GAME_REPO_URL = process.env.NEXT_PUBLIC_GAME_REPO_URL || 'http://localhost:3002';
+
 
 /* ── Progress helpers ─────────────────────────────────────── */
 function readAllProgress() {
@@ -363,7 +363,7 @@ export function ModuleMapPage({
 
   /* ── Fetch manifest ─────────────────────────────────────── */
   useEffect(() => {
-    fetch(`${GAME_REPO_URL}/api/manifest`)
+    fetch(`/api/manifest`)
       .then(r => r.json())
       .then(d => setModules(d.modules?.filter(m => m.is_active) || []))
       .catch(() => setModules([]))

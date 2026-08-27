@@ -1,0 +1,4 @@
+export const GAME_EVENTS = {
+    COMPLETE: 'GAME_COMPLETE',
+    CLOSE: 'GAME_CLOSE',
+};

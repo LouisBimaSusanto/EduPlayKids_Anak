@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "modules": [
+    {
+      "id": "modul1",
+      "title": "Modul 1 - Membaca",
+      "description": "Belajar suku kata dan membaca",
+      "order": 1,
+      "is_active": true,
+      "worlds": [
+        { "id": "level1", "title": "Dunia Suku Kata", "icon": "🚂", "color": "from-blue-300 to-purple-300", "order": 1 },
+        { "id": "level2", "title": "Negeri Rima", "icon": "🏠", "color": "from-purple-300 to-teal-300", "order": 2 },
+        { "id": "level3", "title": "Lautan Fonem", "icon": "🌊", "color": "from-teal-300 to-emerald-300", "order": 3 },
+        { "id": "level4", "title": "Pulau Fonem Ajaib", "icon": "⚙️", "color": "from-emerald-300 to-orange-300", "order": 4 },
+        { "id": "level5", "title": "Mega Festival Bunyi", "icon": "🎆", "color": "from-orange-300 to-fuchsia-300", "order": 5 },
+        { "id": "level6", "title": "Puncak Bintang Nusantara", "icon": "👑", "color": "from-amber-300 to-yellow-300", "order": 6 }
+      ]
+    },
+    {
+      "id": "modul2",
+      "title": "Modul 2 - Working Memory",
+      "description": "Latih kemampuan memori kerja",
+      "order": 2,
+      "is_active": true,
+      "worlds": [
+        { "id": "level1", "title": "Pulau Memori", "icon": "🏝️", "color": "from-cyan-300 to-blue-300", "order": 1 },
+        { "id": "level2", "title": "Hutan Angka", "icon": "🌳", "color": "from-green-300 to-teal-300", "order": 2 },
+        { "id": "level3", "title": "Kota Teka-Teki", "icon": "🏙️", "color": "from-purple-300 to-pink-300", "order": 3 },
+        { "id": "level4", "title": "Puncak Strategi", "icon": "⛰️", "color": "from-orange-300 to-red-300", "order": 4 }
+      ]
+    }
+  ]
+}

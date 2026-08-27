@@ -1,0 +1,45 @@
+{
+  "intro_video_url": "https://www.youtube.com/embed/Pj1L5pT-DDI?autoplay=1&controls=1&modestbranding=1&rel=0",
+  "games": [
+    {
+      "id": "gelembung-bunyi",
+      "title": "Gelembung Bunyi",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul1/gelembung-bunyi",
+      "thumbnail": null
+    },
+    {
+      "id": "jaring-ikan",
+      "title": "Jaring Ikan",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul1/jaring-ikan",
+      "thumbnail": null
+    },
+    {
+      "id": "kapal-selam",
+      "title": "Kapal Selam",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul1/kapal-selam",
+      "thumbnail": null
+    },
+    {
+      "id": "penyusup-lautan",
+      "title": "Penyusup Lautan",
+      "order": 4,
+      "is_active": true,
+      "path": "/games/modul1/penyusup-lautan",
+      "thumbnail": null
+    },
+    {
+      "id": "pulau-sama",
+      "title": "Pulau Sama",
+      "order": 5,
+      "is_active": true,
+      "path": "/games/modul1/pulau-sama",
+      "thumbnail": null
+    }
+  ]
+}
