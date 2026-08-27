@@ -5,7 +5,7 @@ import { ModuleMapPage }    from '@/components/homepage/ModuleMapPage';
 import { HomepageMapDunia } from '@/components/homepage/HomepageMapDunia';
 import { useRouter }        from 'next/navigation';
 
-const GAME_REPO_URL = process.env.NEXT_PUBLIC_GAME_REPO_URL || 'http://localhost:3002';
+
 
 const DEMO_USER = {
   userName: 'Ara Demo', userLevel: 2, levelProgress: 35,

@@ -1,0 +1,45 @@
+{
+  "intro_video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&modestbranding=1&rel=0",
+  "games": [
+    {
+      "id": "batu-loncatan",
+      "title": "Batu Loncatan",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul1/batu-loncatan",
+      "thumbnail": null
+    },
+    {
+      "id": "keranjang",
+      "title": "Keranjang",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul1/keranjang",
+      "thumbnail": null
+    },
+    {
+      "id": "kereta",
+      "title": "Kereta",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul1/kereta",
+      "thumbnail": null
+    },
+    {
+      "id": "palu-es",
+      "title": "Palu Es",
+      "order": 4,
+      "is_active": true,
+      "path": "/games/modul1/palu-es",
+      "thumbnail": null
+    },
+    {
+      "id": "pancuran",
+      "title": "Pancuran",
+      "order": 5,
+      "is_active": true,
+      "path": "/games/modul1/pancuran",
+      "thumbnail": null
+    }
+  ]
+}

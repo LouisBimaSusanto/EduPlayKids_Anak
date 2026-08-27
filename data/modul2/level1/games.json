@@ -1,0 +1,29 @@
+{
+  "intro_video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&modestbranding=1&rel=0",
+  "games": [
+    {
+      "id": "jejak-warna",
+      "title": "Jejak Warna",
+      "order": 1,
+      "is_active": true,
+      "path": "/games/modul2/jejak-warna",
+      "thumbnail": null
+    },
+    {
+      "id": "melodi-hutan",
+      "title": "Melodi Hutan",
+      "order": 2,
+      "is_active": true,
+      "path": "/games/modul2/melodi-hutan",
+      "thumbnail": null
+    },
+    {
+      "id": "bintangku",
+      "title": "Di Mana Bintangku?",
+      "order": 3,
+      "is_active": true,
+      "path": "/games/modul2/bintangku",
+      "thumbnail": null
+    }
+  ]
+}
